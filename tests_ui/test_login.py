@@ -1,5 +1,3 @@
-import os
-
 import pytest
 from playwright.sync_api import expect
 
@@ -11,17 +9,17 @@ from pom.login_page_elements import login_navigate_to_email_login, fill_login_cr
 def test_login_positive_scenario(navigate_to_the_site):
     page = navigate_to_the_site
     login_navigate_to_email_login(page)
-    fill_login_credentials(page, "test.mkhlk@gmail.com", os.environ['PASSWORD'])
+    fill_login_credentials(page, "test.mkhlk@gmail.com", "qwerty123$$$")
     page.get_by_test_id("submit").click()
     page.wait_for_load_state("networkidle")
-    expect(page.get_by_role("button", name="Log In")).to_be_hidden()
+    expect(page.get_by_label("test.mkhlk account menu")).to_be_visible()
 
 
 @pytest.mark.regression
 def test_login_negative_scenario_email(navigate_to_the_site):
     page = navigate_to_the_site
     login_navigate_to_email_login(page)
-    fill_login_credentials(page, "test.mkhlk@gmail", os.environ['PASSWORD'])
+    fill_login_credentials(page, "test.mkhlk@gmail", "qwerty123$$$")
     page.get_by_test_id("submit").click()
     expect(page.get_by_test_id("siteMembers.inlineErrorMsg")).to_be_visible()
 

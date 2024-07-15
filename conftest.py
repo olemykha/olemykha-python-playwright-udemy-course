@@ -1,7 +1,4 @@
-import os
 import pytest
-
-PASSWORD = os.environ['PASSWORD']
 
 
 @pytest.fixture()

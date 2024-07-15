@@ -14,7 +14,6 @@ def test_reset_password_positive_scenario(navigate_to_the_site):
     page.get_by_test_id("siteMembers.container").get_by_label("Email").click()
     page.get_by_test_id("siteMembers.container").get_by_label("Email").fill("test.mkhlk@gmail.com")
     page.get_by_test_id("submit").get_by_test_id("buttonElement").click()
-    page.wait_for_timeout(5000)
     expect(page.get_by_text("Reset password link was sent")).to_be_visible()
 
 
