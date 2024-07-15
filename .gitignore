@@ -160,3 +160,7 @@ cython_debug/
 #.idea/
 
 .idea/
+/pytest-playwright_CLI_commands
+/pytest_CLI_commands
+/useful_commands
+*.env
